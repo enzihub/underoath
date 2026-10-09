@@ -1,0 +1,31 @@
+<!doctype html><html><head><meta charset=utf-8><style>
+@font-face{font-family:Cinzel;src:url(../../docs/fonts/cinzel-700.woff2) format('woff2');font-weight:700}
+@font-face{font-family:Cinzel;src:url(../../docs/fonts/cinzel-600.woff2) format('woff2');font-weight:600}
+@font-face{font-family:Inter;src:url(../../docs/fonts/inter-400.woff2) format('woff2');font-weight:400}
+@font-face{font-family:Inter;src:url(../../docs/fonts/inter-600.woff2) format('woff2');font-weight:600}
+*{box-sizing:border-box;margin:0;padding:0} html,body{background:transparent;-webkit-font-smoothing:antialiased}
+.card{position:relative;overflow:hidden;border-radius:28px;background:#0a0810;color:#efeaf6;font-family:Inter,sans-serif}
+.glow{position:absolute;border-radius:50%;filter:blur(90px)}
+.cz{font-family:Cinzel,serif;font-weight:700;letter-spacing:.06em}
+.shot{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 70px rgba(0,0,0,.7)}
+.shot img{display:block;width:100%}
+.key{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(181,140,255,.35);background:rgba(120,80,200,.12);border-radius:10px;padding:7px 12px 7px 7px;font-size:13.5px;color:#ddd3f2}
+.key b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;background:#1c1530;border:1px solid #8f6ae8;color:#d9c8ff;font:700 13px Cinzel}
+.cap{font:600 11px Inter;letter-spacing:.14em;text-transform:uppercase;color:#b3a8c9;margin:0 0 8px 2px}
+
+.card{width:1000px;height:700px;padding:34px 36px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px;position:relative;z-index:2}
+.wide{grid-column:1 / span 2}
+.title{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;position:relative;z-index:2}
+.title h2{font-size:24px;color:#f1eafb}
+.title span{font-size:13px;color:#8d84a3}
+</style></head><body><div class=card>
+<div class=glow style="width:640px;height:420px;left:260px;top:-220px;background:#5b21b6;opacity:.42"></div>
+<div class=glow style="width:420px;height:320px;left:-120px;top:520px;background:#0d9488;opacity:.18"></div>
+<div class=title><h2 class=cz>Four spells. One cursed glade.</h2><span>Real screenshots from the browser build</span></div>
+<div class=grid>
+ <div><div class=cap>Q &middot; Shadow Strike</div><div class=shot><img src="../screenshots/shadow-strike.jpg"></div></div>
+ <div><div class=cap>W &middot; Protective Aura</div><div class=shot><img src="../screenshots/protective-aura.jpg"></div></div>
+ <div><div class=cap>E &middot; Void Rush</div><div class=shot><img src="../screenshots/void-rush.jpg"></div></div>
+ <div><div class=cap>R &middot; Darkfall</div><div class=shot><img src="../screenshots/darkfall.jpg"></div></div>
+</div></div></body></html>

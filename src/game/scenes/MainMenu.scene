@@ -1,0 +1,86 @@
+{
+    "id": "32e61890-e95a-4d4f-8c33-877c1b27b0b5",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapEnabled": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "MainMenu",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1920,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "21689ab7-057a-4d6f-afd2-8041773874e9",
+            "label": "rectangle_1",
+            "x": 960,
+            "y": 540,
+            "scaleX": 14.683547190885083,
+            "scaleY": 8.224461868156856,
+            "isFilled": true,
+            "fillColor": "#450957",
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Text",
+            "id": "328fe088-54d1-4dfa-add6-24b054e33e2d",
+            "label": "text",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 122,
+            "hitArea.height": 49.93359375,
+            "x": 960,
+            "y": 464,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Settings",
+            "align": "center",
+            "fontFamily": "Arial Black",
+            "fontSize": "38px",
+            "color": "#ffffff",
+            "stroke": "#000000",
+            "strokeThickness": 8
+        },
+        {
+            "type": "Text",
+            "id": "70d592dd-fb86-4013-8a1e-66226beb6c7f",
+            "label": "text_1",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 122,
+            "hitArea.height": 49.93359375,
+            "x": 960,
+            "y": 352,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Play",
+            "align": "center",
+            "fontFamily": "Arial Black",
+            "fontSize": "38px",
+            "color": "#ffffff",
+            "stroke": "#000000",
+            "strokeThickness": 8
+        }
+    ],
+    "plainObjects": [
+        {
+            "id": "792e88a8-4285-4ddc-b928-ebca597fa6a5",
+            "type": "Keyboard.Key",
+            "label": "escKey",
+            "keyCode": "ESC"
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

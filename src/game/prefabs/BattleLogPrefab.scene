@@ -1,0 +1,150 @@
+{
+    "id": "1d594b97-7504-4b5e-8b9c-a3e17f5fba73",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1920,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "b485ceaa-595b-4002-bf4b-bcb5ae17e1c1",
+            "label": "container_1",
+            "x": 960,
+            "y": 540,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "1b85354a-2831-4b0e-bd4f-710b8aab805d",
+                    "label": "background",
+                    "scope": "CLASS",
+                    "scaleX": 2.543535200319656,
+                    "scaleY": 2.543535200319656,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.25,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Text",
+                    "id": "4031bd64-ad0e-4207-8c5e-37fc14b66616",
+                    "label": "titleText",
+                    "scope": "CLASS",
+                    "x": 2,
+                    "y": -133,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Battle Logs"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "messages",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Text[]"
+            }
+        },
+        {
+            "name": "maxMessages",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "messageDuration",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "messageSpacing",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "messageY",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "messageX",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "messageWidth",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "eventManager",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "EventManager"
+            }
+        },
+        {
+            "name": "showBattleLogs",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": false,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

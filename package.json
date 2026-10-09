@@ -1,0 +1,40 @@
+{
+    "name": "underoath",
+    "version": "1.1.1",
+    "description": "UNDEROATH: a dark-fantasy action RPG that runs in the browser. Phaser 3 + Next.js, statically exported.",
+    "license": "MIT",
+    "keywords": [
+        "phaser",
+        "phaser3",
+        "nextjs",
+        "game",
+        "action-rpg",
+        "browser-game",
+        "typescript"
+    ],
+    "scripts": {
+        "dev": "next dev -p 8080",
+        "build": "next build",
+        "build:pages": "NEXT_PUBLIC_BASE_PATH=/underoath/play next build && rm -rf docs/play && cp -r dist docs/play",
+        "start": "serve dist -p ${PORT:-3000}"
+    },
+    "dependencies": {
+        "next": "14.2.35",
+        "phaser": "^3.88.2",
+        "react": "^18",
+        "react-dom": "^18"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "serve": "^14.2.4",
+        "typescript": "^5"
+    },
+    "author": "Enzi Studio",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/enzihub/underoath.git"
+    }
+}

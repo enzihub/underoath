@@ -1,0 +1,183 @@
+{
+    "id": "19ad54d9-d4e6-4493-bac6-902d04b7a299",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1920,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "c06e3acc-3104-4055-999e-7aae3c1f9150",
+            "label": "container_1",
+            "x": 959.999934065371,
+            "y": 539.999941352351,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "cfb33104-9913-4e1b-8a7e-a6ba5f74b0d9",
+                    "label": "image_1",
+                    "texture": {
+                        "key": "world_map"
+                    },
+                    "x": 0.0000070271440790747874,
+                    "y": 0.000014180405969455023
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "mapWidth",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "mapHeight",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "miniMapSize",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "miniMapScale",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": 0,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "miniMapContainer",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Container"
+            }
+        },
+        {
+            "name": "miniMapBg",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Rectangle"
+            }
+        },
+        {
+            "name": "playerMarker",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Arc"
+            }
+        },
+        {
+            "name": "mapGraphics",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Graphics"
+            }
+        },
+        {
+            "name": "monsterMarkers",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Arc[]"
+            }
+        },
+        {
+            "name": "miniMapImage",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Image"
+            }
+        },
+        {
+            "name": "coordinateText",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Text"
+            }
+        },
+        {
+            "name": "jungleCampManager",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "any"
+            }
+        },
+        {
+            "name": "player",
+            "label": "Property",
+            "tooltip": "",
+            "defValue": "",
+            "customDefinition": false,
+            "type": {
+                "id": "object-var",
+                "expressionType": "Phaser.GameObjects.Sprite"
+            }
+        }
+    ]
+}

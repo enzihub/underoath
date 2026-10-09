@@ -1,0 +1,151 @@
+{
+    "id": "8a663a22-e584-4fbc-81b4-c7f02ac5573e",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "displayName": "HUD",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "HUD",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1920,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "be843e2e-fd66-48c0-9df3-3d13d5728509",
+            "label": "text_3",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 154,
+            "hitArea.height": 32.859375,
+            "x": 1809,
+            "y": 43,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Settings",
+            "fontSize": "32px"
+        },
+        {
+            "type": "Text",
+            "id": "05161ac7-f4d4-4889-a7ec-fc05b3872ef0",
+            "label": "text_4",
+            "x": 1852.5,
+            "y": 1063.5703125,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "MiniMap",
+            "fontSize": "32px"
+        },
+        {
+            "prefabId": "19ad54d9-d4e6-4493-bac6-902d04b7a299",
+            "id": "0e5ba752-c134-4bee-8f38-24377fda0302",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "mapPrefab",
+            "scope": "CLASS",
+            "x": 1764.5243764924585,
+            "y": 924.5243971690098,
+            "scaleX": 0.38868895443315943,
+            "scaleY": 0.38868895443315943
+        },
+        {
+            "prefabId": "1d594b97-7504-4b5e-8b9c-a3e17f5fba73",
+            "id": "2131ca8e-60f9-4f04-9cdf-c9a7c4ae2b86",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "battleLogPrefab",
+            "x": 1767.7573458611453,
+            "y": 258,
+            "scaleX": 0.9352305263567248,
+            "scaleY": 0.9352305263567248
+        },
+        {
+            "type": "Container",
+            "id": "be6857e4-a88a-4cce-b9da-0a080df17f72",
+            "label": "playerStats",
+            "x": 831.1482839538896,
+            "y": 1038.415614180486,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "ac5c2890-6e22-4759-a2f1-402a53180612",
+                    "label": "healthBar",
+                    "scope": "CLASS",
+                    "y": 38,
+                    "scaleX": 2.0133080632204736,
+                    "scaleY": 0.05600602842990636,
+                    "originX": 0,
+                    "isFilled": true,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "99261918-ee44-40cf-8361-ad83921f7022",
+                    "label": "abilityQ",
+                    "scope": "CLASS",
+                    "x": 32.851715087890625,
+                    "scaleX": 0.44232190440010744,
+                    "scaleY": 0.44232190440010744,
+                    "isFilled": true,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "9fd177dc-2f49-4540-a2c2-3dd21323c965",
+                    "label": "abilityW",
+                    "scope": "CLASS",
+                    "x": 94.85171508789062,
+                    "scaleX": 0.44232190440010744,
+                    "scaleY": 0.44232190440010744,
+                    "isFilled": true,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "3f8bacae-5125-45be-a6fc-f3208e93ce61",
+                    "label": "abilityE",
+                    "scope": "CLASS",
+                    "x": 157.85171508789062,
+                    "scaleX": 0.44232190440010744,
+                    "scaleY": 0.44232190440010744,
+                    "isFilled": true,
+                    "width": 128,
+                    "height": 128
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "3a4a0f53-7c77-4110-81fd-999103b9bf7a",
+                    "label": "abilityR",
+                    "scope": "CLASS",
+                    "x": 219.85171508789062,
+                    "scaleX": 0.44232190440010744,
+                    "scaleY": 0.44232190440010744,
+                    "isFilled": true,
+                    "width": 128,
+                    "height": 128
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

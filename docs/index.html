@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNDEROATH · A dark-fantasy action RPG in your browser</title>
+<meta name="description" content="UNDEROATH is a small dark-fantasy action RPG built with Phaser 3 and Next.js. Four spells and a cursed glade full of shadow beasts. Open source by Enzi Studio.">
+<meta property="og:title" content="UNDEROATH">
+<meta property="og:description" content="A dark-fantasy action RPG that runs in your browser. Open source by Enzi Studio.">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0810">
+<link rel="icon" href="play/favicon.png">
+<style>
+@font-face { font-family: Cinzel; font-weight: 600; font-display: swap; src: url(fonts/cinzel-600.woff2) format('woff2'); }
+@font-face { font-family: Cinzel; font-weight: 700; font-display: swap; src: url(fonts/cinzel-700.woff2) format('woff2'); }
+@font-face { font-family: Inter; font-weight: 400; font-display: swap; src: url(fonts/inter-400.woff2) format('woff2'); }
+@font-face { font-family: Inter; font-weight: 600; font-display: swap; src: url(fonts/inter-600.woff2) format('woff2'); }
+:root {
+  --bg: #0a0810; --panel: #13101c; --ink: #efeaf6; --muted: #b3a8c9; --dim: #9c93b2;
+  --violet: #a48be0; --violet-2: #7c5ce0; --teal: #2dd4bf; --line: rgba(255, 255, 255, .1);
+  --display: Cinzel, 'Times New Roman', serif; --sans: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); color: var(--ink); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--violet); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.display { font-family: var(--display); font-weight: 700; letter-spacing: .05em; }
+
+.sky { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(900px 560px at 85% -10%, rgba(91, 33, 182, .38), transparent 65%),
+              radial-gradient(700px 460px at -10% 60%, rgba(13, 148, 136, .14), transparent 65%), var(--bg); }
+
+nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); background: rgba(10, 8, 16, .82); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { font-family: var(--display); font-weight: 700; letter-spacing: .12em; font-size: 1.15rem; color: var(--ink); text-decoration: none; }
+.links { display: flex; gap: 22px; align-items: center; }
+.links a { color: var(--muted); text-decoration: none; font-size: .95rem; }
+.links a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 22px; border-radius: 12px; font-weight: 600; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+.btn-primary { background: linear-gradient(135deg, #8b6cf0, #5b21b6); color: #fff; box-shadow: 0 10px 40px -10px rgba(139, 108, 240, .8); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 50px -10px rgba(139, 108, 240, .95); }
+.btn-ghost { border: 1px solid rgba(181, 140, 255, .4); color: var(--ink); background: rgba(120, 80, 200, .08); }
+.btn-ghost:hover { background: rgba(120, 80, 200, .18); }
+.nav-play { min-height: 40px; padding: 8px 16px; }
+
+header.hero { padding: 84px 0 56px; }
+.hero-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center; }
+.eyebrow { font-weight: 600; font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; color: var(--violet); }
+h1 { font-size: clamp(2.8rem, 7vw, 5rem); line-height: 1; margin: 18px 0 20px; text-shadow: 0 0 50px rgba(150, 100, 255, .35); }
+.lede { font-size: 1.12rem; color: var(--muted); max-width: 32em; }
+.typed { color: var(--ink); border-right: 2px solid var(--violet); padding-right: 3px; white-space: nowrap; }
+.cta { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+.note { margin-top: 14px; font-size: .85rem; color: var(--dim); }
+.frame { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255, 255, 255, .14); box-shadow: 0 40px 100px -30px rgba(0, 0, 0, .9), 0 0 80px -30px rgba(139, 108, 240, .6); background: #000; }
+
+section { padding: 60px 0; }
+h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); line-height: 1.15; margin-bottom: 14px; }
+.sec-lede { color: var(--muted); max-width: 40em; margin-bottom: 36px; }
+
+.spells { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.spell { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; transition: border-color .3s, transform .3s; }
+.spell:hover { border-color: rgba(181, 140, 255, .45); transform: translateY(-3px); }
+.spell .body { padding: 18px 20px 22px; }
+.spell h3 { display: flex; align-items: center; gap: 12px; font-size: 1.15rem; }
+.kbd { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 8px; background: #1c1530; border: 1px solid #8f6ae8; color: #d9c8ff; font-family: var(--display); font-weight: 700; flex: none; }
+.spell p { color: var(--muted); margin-top: 8px; font-size: .97rem; }
+
+.how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { border-top: 1px solid rgba(181, 140, 255, .35); padding-top: 18px; }
+.step b { display: block; font-family: var(--display); color: var(--violet); font-size: .9rem; letter-spacing: .12em; margin-bottom: 8px; }
+.step p { color: var(--muted); }
+.controls { margin-top: 36px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ctl { display: flex; gap: 12px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; color: var(--muted); font-size: .95rem; }
+.ctl .kbd { width: auto; min-width: 34px; padding: 0 8px; font-family: var(--sans); font-size: .8rem; }
+
+.run { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 26px; }
+pre { background: #07060b; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; overflow-x: auto; font: .92rem/1.7 ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; color: #ddd3f2; }
+pre .c { color: var(--dim); }
+
+footer { border-top: 1px solid var(--line); padding: 36px 0 48px; color: var(--dim); font-size: .9rem; }
+footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .spells, .how { grid-template-columns: 1fr; }
+  .controls { grid-template-columns: 1fr 1fr; }
+  pre { white-space: pre-wrap; word-break: break-all; font-size: .82rem; }
+  .links a:not(.btn) { display: none; }
+  header.hero { padding-top: 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .btn, .spell { transition: none; }
+  .typed { border-right: 0; }
+}
+</style>
+</head>
+<body>
+<div class="sky"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">UNDEROATH</a>
+    <div class="links">
+      <a href="#spells">Spells</a>
+      <a href="#how">How to play</a>
+      <a href="#run">Run it</a>
+      <a href="https://github.com/enzihub/underoath">GitHub</a>
+      <a class="btn btn-primary nav-play" href="play/">Play</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Browser action RPG &middot; Phaser 3</div>
+      <h1 class="display">UNDEROATH</h1>
+      <p class="lede">Clear a cursed glade of <span class="typed" id="typed">shadow raptors</span><br>with four spells. No install, no account.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="play/">Play in browser</a>
+        <a class="btn btn-ghost" href="https://github.com/enzihub/underoath">View the code</a>
+      </div>
+      <p class="note">Desktop with a keyboard and mouse works best.</p>
+    </div>
+    <div class="frame reveal"><img src="img/shadow-strike.jpg" width="1280" height="720" alt="Gameplay: the hero casts Shadow Strike, a wide cone of dark energy, into a pack of shade raptors in the forest glade."></div>
+  </div>
+</header>
+
+<section id="spells">
+  <div class="wrap">
+    <h2 class="display reveal">Four spells</h2>
+    <p class="sec-lede reveal">Every fight is about chaining these four. The spells are named Q, W, E and R, and keys 1 to 4 cast them by default. You can rebind them in Settings. All screenshots are from the real browser build.</p>
+    <div class="spells">
+      <article class="spell reveal"><img src="img/shadow-strike.jpg" width="1280" height="720" loading="lazy" alt="Shadow Strike hitting a group of enemies"><div class="body"><h3><span class="kbd">Q</span>Shadow Strike</h3><p>A bolt of dark energy in an arc. It damages everything in the cone and marks enemies for Void Rush.</p></div></article>
+      <article class="spell reveal"><img src="img/protective-aura.jpg" width="1280" height="720" loading="lazy" alt="Protective Aura orbs circling the hero"><div class="body"><h3><span class="kbd">W</span>Protective Aura</h3><p>Three spheres orbit the hero for five seconds and detonate when an enemy touches them.</p></div></article>
+      <article class="spell reveal"><img src="img/void-rush.jpg" width="1280" height="720" loading="lazy" alt="The hero mid Void Rush"><div class="body"><h3><span class="kbd">E</span>Void Rush</h3><p>Dash straight to a marked enemy and hit it on arrival. Good for closing the gap or escaping a pack.</p></div></article>
+      <article class="spell reveal"><img src="img/darkfall.jpg" width="1280" height="720" loading="lazy" alt="Darkfall pulling enemies inward"><div class="body"><h3><span class="kbd">R</span>Darkfall</h3><p>The big one. Pulls every nearby enemy into the hero and hits them all for heavy damage.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="display reveal">How to play</h2>
+    <p class="sec-lede reveal">A short sandbox run. This is a 2025 prototype, so there is no story or ending yet.</p>
+    <div class="how">
+      <div class="step reveal"><b>I &middot; Explore</b><p>Right-click the ground to move through the glade. Three camps wait for you: an ember warden, a pack of shade raptors and two stone brutes.</p></div>
+      <div class="step reveal"><b>II &middot; Fight</b><p>Press G to attack the closest enemy. Spend mana on the four spells. Shadow Strike marks enemies, and Void Rush dashes to a marked one.</p></div>
+      <div class="step reveal"><b>III &middot; Clear the camps</b><p>Clear all three camps. Stone brutes split into shards when they fall, and cleared camps come back after four to five minutes.</p></div>
+    </div>
+    <div class="controls reveal">
+      <div class="ctl"><span class="kbd">Right-click</span>Move</div>
+      <div class="ctl"><span class="kbd">G</span>Attack nearest enemy</div>
+      <div class="ctl"><span class="kbd">1 2 3 4</span>Cast Q, W, E, R</div>
+      <div class="ctl"><span class="kbd">W A S D</span>Pan the camera</div>
+      <div class="ctl"><span class="kbd">Space</span>Recentre camera</div>
+      <div class="ctl"><span class="kbd">Esc</span>Menu</div>
+    </div>
+  </div>
+</section>
+
+<section id="run">
+  <div class="wrap">
+    <h2 class="display reveal">Run it yourself</h2>
+    <p class="sec-lede reveal">The game is a static Next.js export, so any static file host can serve it. You need Node.js 18 or newer.</p>
+    <div class="run reveal">
+<pre><span class="c"># get the code and install</span>
+git clone https://github.com/enzihub/underoath.git
+cd underoath
+npm install
+
+<span class="c"># play locally with hot reload on http://localhost:8080</span>
+npm run dev
+
+<span class="c"># or build the static game into dist/ and serve it</span>
+npm run build
+npm start</pre>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Built by Enzi Studio in 2025. Shared as-is under the MIT licence.</span>
+    <span><a href="https://github.com/enzihub/underoath">Source on GitHub</a> &middot; <a href="play/">Play</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    els.forEach(function (e) { e.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { threshold: .12 });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  if (reduce) return;
+  var words = ['shadow raptors', 'stone brutes', 'ember wardens'];
+  var el = document.getElementById('typed'), w = 0, i = words[0].length, del = true;
+  function tick() {
+    var word = words[w];
+    i += del ? -1 : 1;
+    el.textContent = word.slice(0, i);
+    var wait = del ? 45 : 85;
+    if (!del && i === word.length) { del = true; wait = 1800; }
+    else if (del && i === 0) { del = false; w = (w + 1) % words.length; wait = 300; }
+    setTimeout(tick, wait);
+  }
+  setTimeout(tick, 2200);
+})();
+</script>
+</body>
+</html>
